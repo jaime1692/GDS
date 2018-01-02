@@ -69,7 +69,12 @@ include 'holiday-code.php';
 
 		<nav class="grid_19">
 			<ul>
-				<?php include "menu.html"; ?>
+				<li><a href="/index.php">HOME</a></li>
+				<li><a href="articles.php">ARTICLES</a></li>
+				<li><a href="videos.php">VIDEOS</a></li>
+				<!--<li><a href="#">WIKI</a></li>-->
+				<li><a href="about.php">ABOUT</a></li>
+				<li><a href="coming-soon.php">COMING SOON</a></li>
 
 				<?php
 					if(!isset($sessionlogin) || !isset($cookielogin)) {

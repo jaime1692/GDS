@@ -15,57 +15,17 @@
 
 <meta name="description" content="Welcome to GSR - Game Shark Reviews - one of the world's best online gaming hubs!">
 
-<?php 
+<?php
+
 	include_once "../../server/includes/links.php";
-	include_once "../../server/includes/scripts.php"; 
+	include_once "../../server/includes/scripts.php";
 
 	usort($v['i'], function($a, $b) {
 		return $a['i']['statistics']['viewCount'] - $b['i']['statistics']['viewCount'];
 	});
-?>
-<script type="text/javascript">
-  <!--
-  if (screen.width <= 800) {
-    window.location = "http://m.gamesharkreviews.com/";
-  }
-  //-->
-</script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "WebSite",
-  "url": "http://gamesharkreviews.com/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "http://gamesharkreviews.com/search.php?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
-<script>
-	$(document).ready(function($) {
-		
 
-		function timeFormat(timeD){
-			return timeD.replace("PT","").replace("H",":").replace("M",":").replace("S","");
-		}
-		$.get("youtube.json", function(data){
-			for (d = 0; d < 3; d++) { 
-				var vhtml 	 = '<li><a data-id="'+data[0][d].id+'" class="video-contain" href="video.php?id='+data[0][d].id+'">';
-				vhtml 		+= '<span style="background-image:url(https://i.ytimg.com/vi/'+data[0][d].id+'/maxresdefault.jpg);" class="video">';
-				vhtml 		+= '<span class="duration">'+timeFormat(data[0][d].itemDetails.contentDetails.duration)+'</span>';
-				vhtml 		+= '<span class="views">'+data[0][d].itemDetails.statistics.viewCount+' views</span>';
-				vhtml 		+= '</span>';
-				vhtml 		+= '<span class="video-title">'+data[0][d].itemDetails.snippet.title+'</span>';
-				vhtml 		+= '</a></li>';
-                $("#video-list").prepend(vhtml);
-				
-				}
-			});
-		//$("#asideElement").load("asideStatic.html");
-		var slider = $('#featured_articles_container').unslider({autoplay: true, animation: "horizontal", delay: 4500, speed: 1000,infinite: true});
-	});
-</script>
+	include_once "indexCtrl.php";
+?>
 </head>
 
 <body>
@@ -76,7 +36,7 @@
 		<div id="pressi_data"></div>
         	<div id="pressi-loader"></div>
         	<div id="pagination"></div>
-    	</div>
+    </div>
 
 			
 
@@ -344,31 +304,29 @@ AND timestamp < curdate() - INTERVAL DAYOFWEEK(curdate())-9 DAY AND article_type
     <dl id="asideVids">
 		<dt>Popular Videos</dt>
 			<script>
-			$.get("youtube.json", function(data){
-				for (d = 0; d < 3; d++) { 
-					var vhtml 	 = '<dd><a href="video.php?id='+data[0][d].id+'">';
-					vhtml 		+= '<span>'+(d+1)+'</span>'+data[0][d].itemDetails.snippet.title;
-					vhtml 		+= '</a></dd>';
-                	$("#asideVids").append(vhtml);
-				
+				$.get("../../server/includes/youtube.json", function(data){
+					for (d = 0; d < 3; d++) { 
+						var vhtml 	 = '<dd><a href="video.php?id='+data[0][d].id+'">';
+						vhtml 		+= '<span>'+(d+1)+'</span>'+data[0][d].itemDetails.snippet.title;
+						vhtml 		+= '</a></dd>';
+	                	$("#asideVids").append(vhtml);
 					}
 				});
 			</script>
-
 	</dl>
 	<div id="message">
 		Contribute<br><br>
 		Support your favourite game reviewers by
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 			<input type="hidden" name="cmd" value="_s-xclick">
 			<input type="hidden" name="hosted_button_id" value="YANHDL9KQMFJL">
 			<input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
 			<img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
 		</form>
- <a href="https://www.gofundme.com/tecjc6y4">contributing here</a>.
+		<a href="https://www.gofundme.com/tecjc6y4">contributing here</a>.
 	</div>
-<ins data-revive-zoneid="1" data-revive-id="92efd1a11555b4b462d64394af1b51db"></ins>
-<script async src="//gamesharkreviews.com/adserver/www/delivery/asyncjs.php"></script>
+	<ins data-revive-zoneid="1" data-revive-id="92efd1a11555b4b462d64394af1b51db"></ins>
+	<script async src="//gamesharkreviews.com/adserver/www/delivery/asyncjs.php"></script>
 </div>
 
 <!--aside end-->
@@ -414,25 +372,7 @@ AND timestamp < curdate() - INTERVAL DAYOFWEEK(curdate())-9 DAY AND article_type
 	</div>
 
 	<?php include "../includes/footer.html"; ?>
-
-	<script type="text/javascript">
-
-
-
-
-		$(function() {
-
-			$(".article_item").each(function() {
-				$(this).children("#game_display").css("background", "url(imgs/"+$(this).attr("data-article-type")+"/" + $(this).attr("data-article-image") + ") no-repeat top right");
-				$(this).children("#game_type").css("background", "url(imgs/"+$(this).attr("data-article-type")+"/" + $(this).attr("data-article-image") + ") no-repeat top left");
-				$(this).children(".game_block").css("background", "url(imgs/"+$(this).attr("data-article-type")+"/" + $(this).attr("data-article-image") + ") no-repeat center center");
-			});
-
-			$(".item").each(function() {
-				$(this).children(".game_block").css("background", "url(imgs/"+$(this).attr("data-block-type")+"/" + $(this).attr("data-block-image") + ") no-repeat center center");
-			});
-		});
-	</script>
-<!--<script type="text/javascript"> var infolinks_pid = 2939140; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>-->
+<!--
+<script type="text/javascript"> var infolinks_pid = 2939140; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>-->
 </body>
 </html>

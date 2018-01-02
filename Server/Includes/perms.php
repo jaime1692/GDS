@@ -3,6 +3,7 @@
  * @param $name
  * @return bool
  */
+$_SESSION['username'] = null;
 function has_perms($name){
     global $con;
     $user = $_SESSION['username'];

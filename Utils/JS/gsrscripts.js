@@ -1,7 +1,6 @@
 var curSocialUser = false;
 var curSocialAuth = false;
 $(document).ready(function() {
-
     $('#ajaxpreloader').hide();
 
     $('#ajaxpreloader')
@@ -13,7 +12,7 @@ $(document).ready(function() {
 
     $("#pressi").ready(function() {
         $.ajax({
-            url : "featured_articles.php",
+            url : "../../public/includes/featured_articles.php",
             async : false,
             error : function(err) {
                 alert(err);
@@ -47,7 +46,7 @@ $(document).ready(function() {
             }
         });
 
-        var loaderMS    = 4000; // IN MILLISECONDS || MUST CHANGE '#pressi #pressi-loader.loading' ANIMATION IN CSS
+        var loaderMS    = 2000; // IN MILLISECONDS || MUST CHANGE '#pressi #pressi-loader.loading' ANIMATION IN CSS
         var goalWidth   = $("#pressi").find(".left_side").width();
         var currIndex;
         var nextIndex;
@@ -116,6 +115,166 @@ $(document).ready(function() {
             });
         });
     });
+
+    $("#searchbar").on("focus", function() {
+        $("nav#main_menu ul li a[data-search] svg path.magnify").css("fill","#e73030");
+    }).on("blur", function() {
+        $("nav#main_menu ul li a[data-search] svg path.magnify").css("fill","#ffffff");
+    }).on("keyup paste", function() {
+        if($(this).val().length > 3) {
+            var miniURL = "mini_search.php?string=" + $(this).val();
+            $.ajax({
+                url : miniURL,
+                async : false,
+                success : function(minilist) {
+                    $("#mini_list").html(minilist);
+                }
+            });
+        } else if($(this).val().length <= 3) {
+            $("#mini_list").html("");
+        }
+    }).change(function() {
+        var newString = $('#mini_list option[value="' + $(this).val() + '"]').attr("data-string");
+        $("#mini_list").attr("data-string",newString);
+        $("#searchbar").val($("#mini_list").attr("data-string"));
+    });
+
+    $("#user_button").click(function() { $("#userboard").addClass("showboard"); });
+    $("#userboard #close").click(function() { 
+        $("#userboard").removeClass("showboard");
+        $("label.error").remove();
+        $("input").removeClass("error");
+    });
+
+    $("#to_login").click(function() { $("#userboard").addClass("showboard"); $("#userboard").removeClass("showsignup"); });
+    $("#to_signup").click(function() { $("#userboard").addClass("showboard"); $("#userboard").addClass("showsignup"); });
+
+    $("#userboard form #register").click(function() { $("#userboard").addClass("showsignup"); });
+    $("#userboard form #minus").click(function() { $("#userboard").removeClass("showsignup"); });
+
+    $("#userboard form input").on("keyup change", function() {
+        $(this).removeClass("error");
+        $(this).parent("fieldset").find("label.error").remove();
+    });
+
+    $("#login_button").click(function() {
+        var login_username = $("#username").val();
+        var login_password = $("#password").val();
+        var login_url = "standard_login.php?username=" + login_username + "&password=" + login_password;
+
+        $.ajax({
+            url : login_url,
+            async : false,
+            success : function(login_content) {
+                if(login_content == "false") {
+                    $("#userfield").append("<label class='error'>Please enter your username.</label>");
+                    $("#username").addClass("error");
+                    $("#passfield").append("<label class='error'>Please enter your password.</label>");
+                    $("#password").addClass("error");
+                } else if(login_content == "p_false") {
+                    $("#passfield").append("<label class='error'>Please enter your password.</label>");
+                    $("#password").addClass("error");
+                } else if(login_content == "u_false") {
+                    $("#userfield").append("<label class='error'>Please enter your username.</label>");
+                    $("#username").addClass("error");
+                } else if(login_content == "nope") {
+                    $("#userfield").append("<label class='error'>Either your username or password is incorrect.</label>");
+                    $("#username").addClass("error");
+                } else {
+                    alert(login_content);
+                }
+            }
+        });
+    });
+
+    // TO VALIDATE EMAIL ADDRESS
+    function validateEMAIL($email) {
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        return emailReg.test($email);
+    }
+
+    // TO VALIDATE PASSWORD
+    function validatePASS($password) {
+        var passReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        return passReg.test($password);
+    }
+
+    $("#signup_button").click(function() {
+        var reg_firstname = $("#reg_firstname").val();
+        var reg_lastname = $("#reg_lastname").val();
+        var reg_email = $("#reg_email").val();
+        var reg_username = $("#reg_username").val();
+        var reg_password = $("#reg_password").val();
+        var reg_confirm = $("#reg_confirm").val();
+
+        var signup_url = "standard_signup.php?username=" + reg_username + "&password=" + reg_password + "&confirm=" + reg_confirm + "&firstname=" + reg_firstname + "&lastname=" + reg_lastname + "&email=" + reg_email;
+
+        var hault;
+
+        $("input[id^=reg_]").each(function() {
+            if($(this).val().length == 0) {
+                $(this).parent("fieldset").find("label.error").remove();
+                $(this).parent("fieldset").append("<label class='error'>This area must be filled.</label>");
+                $(this).addClass("error");
+                hault = 1;
+            }
+            if($(this).attr("type") == "checkbox" && $(this).prop("checked") == false) {
+                $(this).parent("fieldset").find("label.error").remove();
+                $(this).parent("fieldset").append("<label class='error'>This area must be filled.</label>");
+                $(this).addClass("error");
+                hault = 1;
+            }
+        });
+
+        if(!validateEMAIL(reg_email)) {
+            $("#reg_email").parent("fieldset").find("label.error").remove();
+            $("#reg_email").parent("fieldset").append("<label class='error'>This is not a valid email address.</label>");
+            $("#reg_email").addClass("error");
+            hault = 1;
+        }
+
+        if(reg_password != reg_confirm) {
+            $("#reg_confirm").parent("fieldset").find("label.error").remove();
+            $("#reg_confirm").parent("fieldset").append("<label class='error'>Password does not match.</label>");
+            $("#reg_confirm").addClass("error");
+            hault = 1;
+        }
+
+        if(!validatePASS(reg_password)) {
+            $("#reg_password").parent("fieldset").find("label.error").remove();
+            $("#reg_password").parent("fieldset").append("<label class='error'>Must be at least 8 characters with 1 uppercase, 1 lowercase letter and 1 digit.</label>");
+            $("#reg_password").addClass("error");
+            hault = 1;
+        }
+
+        if(reg_username.length < 6 || reg_username.length > 12) {
+            $("#reg_username").parent("fieldset").find("label.error").remove();
+            $("#reg_username").parent("fieldset").append("<label class='error'>Your username must be between 6 and 12 characters long.</label>");
+            $("#reg_username").addClass("error");
+            hault = 1;
+        }
+
+        if(hault != 1) {
+            $.ajax({
+                url : signup_url,
+                async : false,
+                success : function(signup_content) {
+                    if(signup_content == "taken") {
+                        $("#reg_username").parent("fieldset").find("label.error").remove();
+                        $("#reg_username").parent("fieldset").append("<label class='error'>This username has already been taken.</label>");
+                        $("#reg_username").addClass("error");
+                    } else if(signup_content == "inuse") {
+                        $("#reg_email").parent("fieldset").find("label.error").remove();
+                        $("#reg_email").parent("fieldset").append("<label class='error'>This email address is already in use.</label>");
+                        $("#reg_email").addClass("error");
+                    } else {
+                        alert(signup_content);
+                    }
+                }
+            });
+        }
+    });
+
 
   	$("#owl-demo").owlCarousel({
     	items : 4,
@@ -192,8 +351,7 @@ $(document).ready(function() {
     });
 
     var verifyURL = "check_validation.php";
-
-    $("#loginform").validate({
+    /*$("#loginform").validate({
         ignore: [],
         rules: {
             username: {
@@ -246,7 +404,7 @@ $(document).ready(function() {
                 }
             });
         }
-    });
+    });*/
 
     $("#cruncher").click(function() {
 

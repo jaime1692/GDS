@@ -82,7 +82,7 @@
 /* TAGS & MISC */
 
 body {
-	background: url(../imgs/gsr-wallpaper.jpg) no-repeat center center fixed;
+	background: url(../../uploads/imgs/gsr-wallpaper.jpg) no-repeat center center fixed;
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -112,7 +112,7 @@ h1 {
 }
 
 h1:before {
-	content: url(../imgs/gsr-heading-image.png);
+	content: url(../../uploads/imgs/gsr-heading-image.png);
 	height: 88px;
 	width: 32px;
 	position: absolute;
@@ -136,7 +136,7 @@ h2 {
 }
 
 h2:before {
-	content: url(../imgs/gsr-heading2-image.png);
+	content: url(../../uploads/imgs/gsr-heading2-image.png);
 	height: 66px;
 	width: 40px;
 	position: absolute;
@@ -298,7 +298,7 @@ header {
 	height: 120px;
 	width: 100%;
 	display: block;
-    background: #000000 url(../imgs/gsr-footer-wallpaper.jpg) no-repeat center center;
+    background: #000000 url(../../uploads/imgs/gsr-footer-wallpaper.jpg) no-repeat center center;
     -webkit-background-size: 100% auto;
     -moz-background-size: 100% auto;
     -o-background-size: 100% auto;
@@ -316,11 +316,15 @@ header .navigation {
 	position: relative;
 	height: 120px;
 	width: 180px;
-	background: url(../imgs/gsr_logo_gradient.jpg) repeat-x top left;
+	background: url(../../uploads/imgs/gsr_logo_gradient.jpg) repeat-x top left;
 	box-sizing: border-box;
 	padding-top: 40px;
 	display: block;
 	float: left;
+	/*NEW*/
+	-webkit-box-shadow: 0px 0px 33px 3px rgba(0,0,0,0.58);
+	-moz-box-shadow: 0px 0px 33px 3px rgba(0,0,0,0.58);
+	box-shadow: 0px 0px 33px 3px rgba(0,0,0,0.58);
 }
 
 .controller_body {
@@ -542,7 +546,7 @@ header .navigation nav .marquee_links {
 	display: block;
 	width: 100%;
 	height: 30px;
-	background: #e3e8e4 none top left;
+	background: #990000 none top left /*NEW*/;
     -webkit-clip-path: polygon(0% 0%, 96% 0, 100% 100%, 0% 100%);
     clip-path: polygon(0% 0%, 96% 0, 100% 100%, 0% 100%);
 	position: absolute;
@@ -931,12 +935,12 @@ header .navigation nav .marquee_links img {
 }
 
 .unslider-arrow.prev{
-    background-image:url(../imgs/arrow-left-white.png);
+    background-image:url(../../uploads/imgs/arrow-left-white.png);
     left:30px;
 }
 
 .unslider-arrow.next{
-    background-image:url(../imgs/arrow-right-white.png);
+    background-image:url(../../uploads/imgs/arrow-right-white.png);
     right:30px;
 }
 
@@ -1262,7 +1266,7 @@ form.whiteonred { background: #e73030; height: 350px; }
 
 form.whiteonred h2 {
     color: #e73030;
-    background: #ffffff url(../imgs/gsr_main_featured_article_banner_red.png) no-repeat 150px bottom;
+    background: #ffffff url(../../uploads/imgs/gsr_main_featured_article_banner_red.png) no-repeat 150px bottom;
 }
 
 form.whiteonred input {
@@ -1336,7 +1340,7 @@ form.redonwhite {
 
 form.redonwhite h2 {
     color: #ffffff;
-    background: #e73030 url(../imgs/gsr_main_featured_article_banner.png) no-repeat 150px bottom;
+    background: #e73030 url(../../uploads/imgs/gsr_main_featured_article_banner.png) no-repeat 150px bottom;
     position: relative;
     left: -20px;
 }
@@ -1415,7 +1419,7 @@ form.redonblack {
 
 form.redonblack h2 {
     color: #ffffff;
-    background: #e73030 url(../imgs/gsr_main_featured_article_banner.png) no-repeat 150px bottom;
+    background: #e73030 url(../../uploads/imgs/gsr_main_featured_article_banner.png) no-repeat 150px bottom;
     position: relative;
     left: -20px;
 }
@@ -2591,7 +2595,7 @@ form.smallform button, form.smallform a.button {
 	right: 0;
 	height: 37px;
 	width: 960px;
-	background: url(../imgs/gsr_main_featured_article_banner.png) right bottom no-repeat;
+	background: url(../../uploads/imgs/gsr_main_featured_article_banner.png) right bottom no-repeat;
 	color: #e73030;
 	line-height: 35px;
 	font-size: 46px;
@@ -3220,7 +3224,7 @@ aside#crunchbox {
 }
 
 aside#crunchbox h2 {
-    background: #e73030 url("../imgs/gsr_crunchbox.jpg") bottom right no-repeat;
+    background: #e73030 url("../../uploads/imgs/gsr_crunchbox.jpg") bottom right no-repeat;
     color: #ffffff;
     font-size: 24px;
     font-weight: bold;
@@ -3430,7 +3434,7 @@ aside#crunchbox ul #crunchOFFSET {
 
 footer {
 	width: 100%;
-    background: #000000 url(../imgs/gsr-footer-wallpaper.jpg) no-repeat center top;
+    background: #000000 url(../../uploads/imgs/gsr-footer-wallpaper.jpg) no-repeat center top;
     -webkit-background-size: 100% auto;
     -moz-background-size: 100% auto;
     -o-background-size: 100% auto;
@@ -3528,7 +3532,7 @@ footer nav ol li a.media-fb:hover {
 }
 
 footer nav ol li a.media-fb:before {
-    content: url(../imgs/gsr-footer-fb-icon.png);
+    content: url(../../uploads/imgs/gsr-footer-fb-icon.png);
     height: auto;
     width: auto;
     position: absolute;
@@ -3546,7 +3550,7 @@ footer nav ol li a.media-tw:hover {
 }
 
 footer nav ol li a.media-tw:before {
-    content: url(../imgs/gsr-footer-tw-icon.png);
+    content: url(../../uploads/imgs/gsr-footer-tw-icon.png);
     height: auto;
     width: auto;
     position: absolute;
@@ -3566,7 +3570,7 @@ footer nav ol li a.media-rd:hover {
 }
 
 footer nav ol li a.media-rd:before {
-    content: url(../imgs/gsr-footer-rd-icon.png);
+    content: url(../../uploads/imgs/gsr-footer-rd-icon.png);
     height: auto;
     width: auto;
     position: absolute;
@@ -3585,7 +3589,7 @@ footer nav ol li a.media-yt:hover {
 }
 
 footer nav ol li a.media-yt:before {
-    content: url(../imgs/gsr-footer-yt-icon.png);
+    content: url(../../uploads/imgs/gsr-footer-yt-icon.png);
     height: auto;
     width: auto;
     position: absolute;
@@ -3755,7 +3759,7 @@ footer nav p a:hover {
     line-height: 1.7;
     width: 100%;
     overflow: hidden;
-    background: #1c71ac url(../imgs/backgrad.svg) repeat-x center top;
+    background: #1c71ac url(../../uploads/imgs/backgrad.svg) repeat-x center top;
 }
 
 .aboutPage section {
@@ -3806,8 +3810,8 @@ footer nav p a:hover {
     100% { background-position: -260px 5px; }
 }
 
-.aboutPage .about_section-sky .animated_wave.front-wave { background-image: url('../imgs/gsr_about_page_front_wave.png'); background-position: 0px 0px; animation: animated_waves_front 4s linear 0s infinite; -webkit-animation: animated_waves_front 4s linear 0s infinite; }
-.aboutPage .about_section-sky .animated_wave.back-wave { background-image: url('../imgs/gsr_about_page_back_wave.png'); background-position: -86px -5px; animation: animated_waves_back 4s linear 0s infinite; -webkit-animation: animated_waves_back 4s linear 0s infinite; }
+.aboutPage .about_section-sky .animated_wave.front-wave { background-image: url('../../uploads/imgs/gsr_about_page_front_wave.png'); background-position: 0px 0px; animation: animated_waves_front 4s linear 0s infinite; -webkit-animation: animated_waves_front 4s linear 0s infinite; }
+.aboutPage .about_section-sky .animated_wave.back-wave { background-image: url('../../uploads/imgs/gsr_about_page_back_wave.png'); background-position: -86px -5px; animation: animated_waves_back 4s linear 0s infinite; -webkit-animation: animated_waves_back 4s linear 0s infinite; }
 
 .aboutPage .about_section-sky .animated_fins {
     position: absolute;
@@ -3984,7 +3988,7 @@ footer nav p a:hover {
     position: absolute;
     top: -10px;
     left: -10px;
-    content: url("../imgs/gsr_about_shark_fins.png");
+    content: url("../../uploads/imgs/gsr_about_shark_fins.png");
     height: 120px;
     width: 120px;
     display: none;
@@ -4452,7 +4456,7 @@ footer nav p a:hover {
 
 
 .jtable .article-edit{
-	background-image: url(../imgs/dashboard/article-edit.png);
+	background-image: url(../../uploads/imgs/dashboard/article-edit.png);
     display: block;
     width: 16px;
     height: 16px;
@@ -4462,7 +4466,7 @@ footer nav p a:hover {
 .jtable .article-edit:hover{opacity:1;}
 
 .jtable .staffguide-locked{
-	background-image: url(../imgs/dashboard/lock-icon.png);
+	background-image: url(../../uploads/imgs/dashboard/lock-icon.png);
     background-size:contain;
     display: block;
     width: 16px;
@@ -4472,7 +4476,7 @@ footer nav p a:hover {
 }
 
 .jtable .staffguide-unlocked{
-	background-image: url(../imgs/dashboard/open-padlock.png);
+	background-image: url(../../uploads/imgs/dashboard/open-padlock.png);
     background-size:contain;
     display: block;
     width: 16px;
@@ -4482,7 +4486,7 @@ footer nav p a:hover {
 }
 
 .jtable .preview{
-	background-image: url(../imgs/dashboard/preview.png);
+	background-image: url(../../uploads/imgs/dashboard/preview.png);
     display: block;
     width: 24px;
     height: 24px;
@@ -4495,7 +4499,7 @@ footer nav p a:hover {
 .jtable .preview:hover{opacity:1;}
 
 .jtable .img-change{
-	background-image: url(../imgs/dashboard/img-change.png);
+	background-image: url(../../uploads/imgs/dashboard/img-change.png);
     display: block;
     width: 16px;
     height: 16px;
@@ -4577,7 +4581,7 @@ footer nav p a:hover {
     height: 100%;
     top: 0;
     left: 0;
-    background: url(../imgs/gsr-dark-pattern.png) top right repeat-y;
+    background: url(../../uploads/imgs/gsr-dark-pattern.png) top right repeat-y;
     z-index: 99;
     content: "";
 }
@@ -4655,7 +4659,7 @@ footer nav p a:hover {
     color: #ffffff;
     font-size: 13px;
     padding-left: 20px;
-    background: url(../imgs/gsr-profile-detail-icons.jpg) 0px 0px no-repeat;
+    background: url(../../uploads/imgs/gsr-profile-detail-icons.jpg) 0px 0px no-repeat;
     position: relative;
     height: 20px;
     line-height: 20px;
@@ -4665,7 +4669,7 @@ footer nav p a:hover {
     color: #ffffff;
     font-size: 13px;
     padding-left: 20px;
-    background: url(../imgs/gsr-profile-detail-icons.jpg) 0px -20px no-repeat;
+    background: url(../../uploads/imgs/gsr-profile-detail-icons.jpg) 0px -20px no-repeat;
     position: relative;
     height: 20px;
     line-height: 20px;
@@ -4688,7 +4692,7 @@ footer nav p a:hover {
     width: 26px;
     margin: 2px;
     padding: 0;
-    background-image: url(../imgs/gsr-profile-link-icons.jpg);
+    background-image: url(../../uploads/imgs/gsr-profile-link-icons.jpg);
     background-repeat: no-repeat;
 }
 
@@ -4726,7 +4730,7 @@ footer nav p a:hover {
     height: 52px;
     width: 56px;
     margin: 30px auto 10px auto;
-    background: url(../imgs/gsr-profile-loves.jpg) 0px 0px no-repeat;
+    background: url(../../uploads/imgs/gsr-profile-loves.jpg) 0px 0px no-repeat;
 }
 
 #profilegaming #profileloves #lovesicon {
@@ -4739,7 +4743,7 @@ footer nav p a:hover {
     left: 50%;
     margin-top: -7px;
     margin-left: -15px;
-    background-image: url(../imgs/gsr-profile-gaming-icons.jpg);
+    background-image: url(../../uploads/imgs/gsr-profile-gaming-icons.jpg);
     background-position: 0px -70px;
     background-repeat: no-repeat;
 }
@@ -4760,7 +4764,7 @@ footer nav p a:hover {
     position: relative;
     height: 14px;
     padding-left: 50px;
-    background: url(../imgs/gsr-profile-gaming-icons.jpg) 0px 0px no-repeat;
+    background: url(../../uploads/imgs/gsr-profile-gaming-icons.jpg) 0px 0px no-repeat;
     white-space: nowrap;
     width: 90%;
     overflow: hidden;
@@ -4771,21 +4775,21 @@ footer nav p a:hover {
     position: relative;
     height: 14px;
     padding-left: 50px;
-    background: url(../imgs/gsr-profile-gaming-icons.jpg) 0px -14px no-repeat;
+    background: url(../../uploads/imgs/gsr-profile-gaming-icons.jpg) 0px -14px no-repeat;
 }
 
 #profilegaming #profileplaystation {
     position: relative;
     height: 14px;
     padding-left: 50px;
-    background: url(../imgs/gsr-profile-gaming-icons.jpg) 0px -28px no-repeat;
+    background: url(../../uploads/imgs/gsr-profile-gaming-icons.jpg) 0px -28px no-repeat;
 }
 
 #profilegaming #profilesteam {
     position: relative;
     height: 14px;
     padding-left: 50px;
-    background: url(../imgs/gsr-profile-gaming-icons.jpg) 0px -42px no-repeat;
+    background: url(../../uploads/imgs/gsr-profile-gaming-icons.jpg) 0px -42px no-repeat;
 }
 
 #profilelevel {
@@ -6762,8 +6766,8 @@ footer nav p a:hover {
 }
 
 
-#bite[data-state="active"]{	background-image:url(../imgs/bite_active.png); }
-#bite[data-state="inactive"]{ background-image:url(../imgs/bite_inactive.png); }
+#bite[data-state="active"]{	background-image:url(../../uploads/imgs/bite_active.png); }
+#bite[data-state="inactive"]{ background-image:url(../../uploads/imgs/bite_inactive.png); }
 
 #bite_count[data-state="active"]{
 		background-color: #E4001B;
@@ -6877,9 +6881,9 @@ footer nav p a:hover {
 
 
 
-.social_fb{background-image:url(../imgs/social_fb.png);}
-.social_twitter{background-image:url(../imgs/social_twitter.png);}
-.social_gplus{background-image:url(../imgs/social_gplus.png);}
+.social_fb{background-image:url(../../uploads/imgs/social_fb.png);}
+.social_twitter{background-image:url(../../uploads/imgs/social_twitter.png);}
+.social_gplus{background-image:url(../../uploads/imgs/social_gplus.png);}
 
 
 
